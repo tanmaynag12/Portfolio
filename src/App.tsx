@@ -1,9 +1,10 @@
+import Nav from "./Nav";
 import Hero from "./Hero";
 
 function App() {
-
   return (
-    <div className="min-h-screen flex flex-col text-neutral-100">
+    <div>
+      <Nav />
       <Hero />
     </div>
   );
