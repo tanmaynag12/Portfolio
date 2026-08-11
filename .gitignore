@@ -1,16 +1,33 @@
 # Dependencies
 node_modules/
 
-# Production builds
+# Build files
 dist/
 dist-ssr/
+.vite/
 
-# Environment variables
+# Environment files
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
+*.local
+
+# Vite / TypeScript / project config
+package.json
+package-lock.json
+vite.config.ts
+tsconfig.json
+tsconfig.app.json
+tsconfig.node.json
+eslint.config.js
+README.md
+
+# Editor files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
 
 # Logs
 *.log
@@ -18,38 +35,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
-# Local development files
-*.local
-
-# Editor / IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-*.swn
-*.suo
-*.user
-*.userossc
-*.sln
-*.njsproj
-*.ntvs*
-
-# OS generated files
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# Testing / coverage
-coverage/
-
-# Vite cache
-.vite/
-
-# TypeScript build info
+# TypeScript cache
 *.tsbuildinfo
-
-# Temporary files
-*.tmp
-*.temp
