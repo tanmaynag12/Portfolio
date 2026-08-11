@@ -7,6 +7,7 @@ import Skills from "./Skills";
 import About from "./About";
 import Footer from "./Footer";
 import Education from "./Education";
+import Achievements from "./Achivements";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Projects />
       <Skills />
       <Education />
+      <Achievements />
       <Footer />
     </div>
   );
