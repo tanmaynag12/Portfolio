@@ -3,6 +3,7 @@ import Hero from "./Hero";
 import Background from "./Background";
 import Experience from "./Experience";
 import Projects from "./Projects";
+import Skills from "./Skills";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Hero />
       <Experience />
       <Projects />
+      <Skills />
     </div>
   );
 }
