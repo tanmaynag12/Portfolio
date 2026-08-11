@@ -1,17 +1,17 @@
-import Nav from "./Nav";
-import Hero from "./Hero";
-import Background from "./Background";
+import Achievements from "./Achivements";
+import Education from "./Education";
 import Experience from "./Experience";
+import Footer from "./Footer";
+import Hero from "./Hero";
+import Nav from "./Nav";
 import Projects from "./Projects";
 import Skills from "./Skills";
 import About from "./About";
-import Footer from "./Footer";
-import Education from "./Education";
-import Achievements from "./Achivements";
+import Background from "./Background";
 
 function App() {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col text-neutral-100">
       <Background />
       <Nav />
       <Hero />
