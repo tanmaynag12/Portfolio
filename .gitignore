@@ -1,27 +1,18 @@
 # Dependencies
 node_modules/
 
-# Build files
+# Build output
 dist/
 dist-ssr/
 .vite/
 
-# Environment files
+# Environment / secrets
 .env
 .env.*
+!.env.example
 *.local
 
-# Vite / TypeScript / project config
-package.json
-package-lock.json
-vite.config.ts
-tsconfig.json
-tsconfig.app.json
-tsconfig.node.json
-eslint.config.js
-README.md
-
-# Editor files
+# Editor settings
 .vscode/
 .idea/
 
