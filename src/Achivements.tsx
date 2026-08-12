@@ -18,7 +18,7 @@ const achievements: Achievement[] = [
     detail: "2024 · All India Institute of Speech and Hearing (AIISH), Mysuru",
     description:
       "Developed AAVAAS, a web-based tele-consultation platform connecting speech-language pathologists and audiologists with the people they support.",
-    certificate: "/AAVAAS.pdf",
+    certificate: "/AIISH.pdf",
   },
 ];
 
