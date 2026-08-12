@@ -4,7 +4,7 @@ import medicateChatbot from "./assets/Medicate_chatbot.jpeg";
 import medicateLogin from "./assets/Medicate_login.jpeg";
 import JobPortalHome from "./assets/JobPortal_home.jpeg";
 import JobPortalSignup from "./assets/Jobportal_signup.jpeg";
-import JobPortaljob from "./assets/JobPortal_job.jpeg";
+import JobPortaljob from "./assets/Jobportal_job.jpeg";
 import AACHOME from "./assets/AAC_home.jpeg";
 import AACPHRASES from "./assets/AAC_phrases.jpeg";
 import AACLANG from "./assets/AAC_languages.jpeg";
