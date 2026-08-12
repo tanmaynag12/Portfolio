@@ -55,7 +55,6 @@ function Nav() {
           : "opacity-0 -translate-y-10 pointer-events-none"
       }`}
     >
-      {/* Desktop nav — unchanged */}
       <nav className="hidden md:flex gap-5 items-center justify-center max-w-fit mx-auto px-6 py-3 rounded-full bg-neutral-900/75 backdrop-blur-md border border-white/10">
         <a
           href="#hero"
@@ -95,7 +94,6 @@ function Nav() {
         </a>
       </nav>
 
-      {/* Mobile nav */}
       <nav className="md:hidden w-full max-w-sm rounded-2xl bg-neutral-900/75 backdrop-blur-md border border-white/10 overflow-hidden">
         <div className="flex items-center justify-between gap-4 px-4 py-3">
           <a
