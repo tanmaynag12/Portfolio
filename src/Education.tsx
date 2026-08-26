@@ -39,29 +39,29 @@ function Education() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="education" className="px-6 pt-20 md:px-10">
+    <section id="education" className="bg-[#F0EEE6] px-6 py-20 md:px-10">
       <div className="mx-auto max-w-4xl">
-        <h2 className="text-2xl font-semibold text-white">Education</h2>
+        <h2 className="text-2xl font-semibold text-neutral-900">Education</h2>
 
-        <ol className="relative mt-8 border-l border-white/10 pl-6">
+        <ol className="relative mt-8 border-l border-black/10 pl-6">
           {education.map((entry, i) => {
             const isOpen = openIndex === i;
             return (
               <li key={entry.degree} className="relative pb-10 last:pb-0">
-                <span className="absolute -left-[27px] top-1.5 h-2.5 w-2.5 rounded-full bg-white" />
+                <span className="absolute -left-[27px] top-1.5 h-2.5 w-2.5 rounded-full bg-neutral-900" />
 
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                   className="block w-full text-left"
                 >
-                  <span className="text-xs font-semibold uppercase tracking-widest text-white/40">
+                  <span className="text-xs font-semibold uppercase tracking-widest text-neutral-400">
                     {entry.years}
                   </span>
-                  <h3 className="mt-1 text-lg font-semibold text-white">
+                  <h3 className="mt-1 text-lg font-semibold text-neutral-900">
                     {entry.degree}
                   </h3>
-                  <p className="mt-0.5 text-sm text-white/60">
+                  <p className="mt-0.5 text-sm text-neutral-600">
                     {entry.institution}
                   </p>
                 </button>
@@ -71,7 +71,7 @@ function Education() {
                     isOpen ? "mt-4 grid-rows-[1fr]" : "grid-rows-[0fr]"
                   }`}
                 >
-                  <div className="overflow-hidden rounded-xl">
+                  <div className="overflow-hidden rounded-xl border border-black/10">
                     <img src={entry.image} alt={entry.alt} width="300"></img>
                   </div>
                 </div>

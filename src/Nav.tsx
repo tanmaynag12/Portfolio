@@ -1,10 +1,22 @@
 import { useState, useEffect, useRef } from "react";
 
+const NAV_LINKS = [
+  { id: "hero", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "experience", label: "Experience" },
+  { id: "projects", label: "Projects" },
+  { id: "skills", label: "Skills" },
+  { id: "education", label: "Education" },
+  { id: "contact", label: "Contact" },
+];
+
 function Nav() {
   const [isVisible, setIsVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
   const lastScrollY = useRef(0);
 
+  // Hide/show nav on scroll direction
   useEffect(() => {
     let scrollTimeout: ReturnType<typeof setTimeout> | null = null;
     let isScrolling = false;
@@ -21,10 +33,12 @@ function Nav() {
         } else {
           setIsVisible(true);
         }
+
         lastScrollY.current = currentScrollY;
       }
 
       if (scrollTimeout) clearTimeout(scrollTimeout);
+
       scrollTimeout = window.setTimeout(() => {
         isScrolling = false;
         scrollTimeout = null;
@@ -43,9 +57,42 @@ function Nav() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("mousemove", handleMouseMove);
+
       if (scrollTimeout) clearTimeout(scrollTimeout);
     };
   }, []);
+
+  // Scroll-spy: highlight active section
+  useEffect(() => {
+    const sections = NAV_LINKS.map((link) =>
+      document.getElementById(link.id),
+    ).filter((el): el is HTMLElement => el !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: "-40% 0px -50% 0px",
+        threshold: 0,
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
+  function handleLinkClick(id: string) {
+    setIsMenuOpen(false);
+    setActiveSection(id);
+  }
 
   return (
     <div
@@ -55,62 +102,43 @@ function Nav() {
           : "opacity-0 -translate-y-10 pointer-events-none"
       }`}
     >
-      <nav className="hidden md:flex gap-5 items-center justify-center max-w-fit mx-auto px-6 py-3 rounded-full bg-neutral-900/75 backdrop-blur-md border border-white/10">
-        <a
-          href="#hero"
-          className="text-neutral-100 no-underline font-bold text-lg mr-2"
-        >
-          Tanmay Nag
-        </a>
-        <a
-          href="/Resume.pdf"
-          className="text-neutral-100 no-underline px-4 py-2 rounded-full bg-neutral-800 transition-all duration-300 hover:bg-neutral-700 hover:shadow-lg"
-        >
-          Resume
-        </a>
-        <a
-          href="mailto:nagtanmay01@gmail.com"
-          className="text-neutral-100 no-underline px-4 py-2 rounded-full bg-neutral-800 transition-all duration-300 hover:bg-neutral-700 hover:shadow-lg"
-        >
-          nagtanmay01@gmail.com
-        </a>
-        <a
-          href="tel:+917619613856"
-          className="text-neutral-100 no-underline px-4 py-2 rounded-full bg-neutral-800 transition-all duration-300 hover:bg-neutral-700 hover:shadow-lg"
-        >
-          +91 7619613856
-        </a>
-        <a
-          href="https://linkedin.com/in/tanmay-nag"
-          className="text-neutral-100 no-underline px-4 py-2 rounded-full bg-neutral-800 transition-all duration-300 hover:bg-neutral-700 hover:shadow-lg"
-        >
-          LinkedIn
-        </a>
-        <a
-          href="https://github.com/tanmaynag12"
-          className="text-neutral-100 no-underline px-4 py-2 rounded-full bg-neutral-800 transition-all duration-300 hover:bg-neutral-700 hover:shadow-lg"
-        >
-          GitHub
-        </a>
+      {/* Desktop nav */}
+      <nav className="hidden md:flex items-center justify-center gap-1.5 rounded-full border border-black/10 bg-[#DCD9CF] p-2 shadow-sm backdrop-blur-md">
+        {NAV_LINKS.filter((link) => link.id !== "hero").map((link) => (
+          <a
+            key={link.id}
+            href={`#${link.id}`}
+            onClick={() => handleLinkClick(link.id)}
+            className={`no-underline rounded-full px-5 py-3 text-base font-medium transition-all duration-300 ${
+              activeSection === link.id
+                ? "bg-blue-600 text-white shadow-sm"
+                : "text-neutral-600 hover:bg-black/5 hover:text-neutral-900"
+            }`}
+          >
+            {link.label}
+          </a>
+        ))}
       </nav>
 
-      <nav className="md:hidden w-full max-w-sm rounded-2xl bg-neutral-900/75 backdrop-blur-md border border-white/10 overflow-hidden">
-        <div className="flex items-center justify-between gap-4 px-4 py-3">
+      {/* Mobile nav */}
+      <nav className="md:hidden w-full max-w-sm overflow-hidden rounded-2xl border border-black/10 bg-[#DCD9CF] shadow-sm backdrop-blur-md">
+        <div className="flex items-center justify-between gap-4 px-4 py-4">
           <a
             href="#hero"
             onClick={() => setIsMenuOpen(false)}
-            className="text-neutral-100 no-underline font-bold text-base"
+            className="text-base font-bold text-neutral-900 no-underline"
           >
             Tanmay Nag
           </a>
+
           <button
             aria-label="Toggle menu"
             onClick={() => setIsMenuOpen((open) => !open)}
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-neutral-800 text-neutral-100"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-black/5 text-neutral-700 transition hover:bg-black/10"
           >
             <svg
               viewBox="0 0 24 24"
-              className="h-4 w-4"
+              className="h-5 w-5"
               fill="none"
               stroke="currentColor"
               strokeWidth={2}
@@ -139,41 +167,20 @@ function Nav() {
         >
           <div className="overflow-hidden">
             <div className="flex flex-col gap-2 px-4 pb-4">
-              <a
-                href="/Resume.pdf"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-neutral-100 no-underline text-center px-4 py-2.5 rounded-full bg-neutral-800 transition-all duration-300 hover:bg-neutral-700"
-              >
-                Resume
-              </a>
-              <a
-                href="mailto:nagtanmay01@gmail.com"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-neutral-100 no-underline text-center px-4 py-2.5 rounded-full bg-neutral-800 transition-all duration-300 hover:bg-neutral-700"
-              >
-                nagtanmay01@gmail.com
-              </a>
-              <a
-                href="tel:+917619613856"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-neutral-100 no-underline text-center px-4 py-2.5 rounded-full bg-neutral-800 transition-all duration-300 hover:bg-neutral-700"
-              >
-                +91 7619613856
-              </a>
-              <a
-                href="https://linkedin.com/in/tanmay-nag"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-neutral-100 no-underline text-center px-4 py-2.5 rounded-full bg-neutral-800 transition-all duration-300 hover:bg-neutral-700"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="https://github.com/tanmaynag12"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-neutral-100 no-underline text-center px-4 py-2.5 rounded-full bg-neutral-800 transition-all duration-300 hover:bg-neutral-700"
-              >
-                GitHub
-              </a>
+              {NAV_LINKS.filter((link) => link.id !== "hero").map((link) => (
+                <a
+                  key={link.id}
+                  href={`#${link.id}`}
+                  onClick={() => handleLinkClick(link.id)}
+                  className={`no-underline rounded-full px-4 py-3 text-center text-base font-medium transition-all duration-300 ${
+                    activeSection === link.id
+                      ? "bg-blue-600 text-white"
+                      : "bg-black/5 text-neutral-600 hover:bg-black/10 hover:text-neutral-900"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
           </div>
         </div>

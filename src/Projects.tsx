@@ -59,8 +59,8 @@ function ProjectCard({ project }: { project: Project }) {
   const images = project.images ?? [];
 
   return (
-    <article className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm md:flex">
-      <div className="relative flex aspect-video items-center justify-center overflow-hidden border-b border-white/10 bg-white/[0.02] md:aspect-auto md:w-2/5 md:border-b-0 md:border-r">
+    <article className="overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm md:flex">
+      <div className="relative flex aspect-video items-center justify-center overflow-hidden border-b border-black/10 bg-black/[0.02] md:aspect-auto md:w-2/5 md:border-b-0 md:border-r">
         {images.length > 0 ? (
           <>
             <img
@@ -68,6 +68,7 @@ function ProjectCard({ project }: { project: Project }) {
               alt={`${project.title} screenshot ${slide + 1}`}
               className="h-full w-full object-cover"
             />
+
             {images.length > 1 && (
               <>
                 <button
@@ -75,7 +76,7 @@ function ProjectCard({ project }: { project: Project }) {
                     setSlide((s) => (s - 1 + images.length) % images.length)
                   }
                   aria-label="Previous screenshot"
-                  className="absolute left-3 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/50 text-white/80 backdrop-blur-sm transition hover:bg-black/70 hover:text-white"
+                  className="absolute left-3 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-black/10 bg-white/80 text-neutral-700 backdrop-blur-sm transition hover:bg-white hover:text-neutral-900"
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -91,10 +92,11 @@ function ProjectCard({ project }: { project: Project }) {
                     />
                   </svg>
                 </button>
+
                 <button
                   onClick={() => setSlide((s) => (s + 1) % images.length)}
                   aria-label="Next screenshot"
-                  className="absolute right-3 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/50 text-white/80 backdrop-blur-sm transition hover:bg-black/70 hover:text-white"
+                  className="absolute right-3 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-black/10 bg-white/80 text-neutral-700 backdrop-blur-sm transition hover:bg-white hover:text-neutral-900"
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -110,6 +112,7 @@ function ProjectCard({ project }: { project: Project }) {
                     />
                   </svg>
                 </button>
+
                 <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5">
                   {images.map((_, i) => (
                     <button
@@ -118,8 +121,8 @@ function ProjectCard({ project }: { project: Project }) {
                       aria-label={`Show screenshot ${i + 1}`}
                       className={`h-1.5 rounded-full transition-all ${
                         i === slide
-                          ? "w-4 bg-white"
-                          : "w-1.5 bg-white/40 hover:bg-white/60"
+                          ? "w-4 bg-neutral-900"
+                          : "w-1.5 bg-neutral-400 hover:bg-neutral-500"
                       }`}
                     />
                   ))}
@@ -128,16 +131,16 @@ function ProjectCard({ project }: { project: Project }) {
             )}
           </>
         ) : (
-          <span className="text-xs uppercase tracking-widest text-white/30"></span>
+          <span className="text-xs uppercase tracking-widest text-neutral-400"></span>
         )}
       </div>
 
-      {/* Content */}
       <div className="flex-1 p-7 md:p-9">
-        <h3 className="text-xl font-semibold text-white md:text-2xl">
+        <h3 className="text-xl font-semibold text-neutral-900 md:text-2xl">
           {project.title}
         </h3>
-        <p className="mt-4 text-sm leading-relaxed text-white/80 md:text-base">
+
+        <p className="mt-4 text-sm leading-relaxed text-neutral-700 md:text-base">
           {project.description}
         </p>
 
@@ -145,7 +148,7 @@ function ProjectCard({ project }: { project: Project }) {
           {project.tech.map((tech) => (
             <span
               key={tech}
-              className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/70 md:text-sm"
+              className="rounded-full border border-black/10 bg-black/5 px-3 py-1.5 text-xs text-neutral-600 md:text-sm"
             >
               {tech}
             </span>
@@ -158,17 +161,18 @@ function ProjectCard({ project }: { project: Project }) {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-xs font-semibold uppercase tracking-wide text-white/80 transition hover:bg-white/10 hover:text-white"
+              className="rounded-full border border-black/10 bg-black/5 px-5 py-2.5 text-xs font-semibold uppercase tracking-wide text-neutral-700 transition hover:bg-black/10 hover:text-neutral-900"
             >
               GitHub
             </a>
           )}
+
           {project.live && (
             <a
               href={project.live}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-blue-400/30 bg-blue-400/10 px-5 py-2.5 text-xs font-semibold uppercase tracking-wide text-blue-400 transition hover:bg-blue-400/20"
+              className="rounded-full border border-blue-600/30 bg-blue-600/10 px-5 py-2.5 text-xs font-semibold uppercase tracking-wide text-blue-600 transition hover:bg-blue-600/20"
             >
               Live
             </a>
@@ -181,10 +185,11 @@ function ProjectCard({ project }: { project: Project }) {
 
 function Projects() {
   return (
-    <section id="projects" className="px-6 pt-20 md:px-10">
+    <section id="projects" className="bg-[#F0EEE6] px-6 py-20 md:px-10">
       <div className="mx-auto max-w-6xl">
-        <h2 className="text-2xl font-semibold text-white">Projects</h2>
-        <p className="mt-2 text-sm text-white/50">
+        <h2 className="text-2xl font-semibold text-neutral-900">Projects</h2>
+
+        <p className="mt-2 text-sm text-neutral-500">
           Here are some of the projects I've worked on.
         </p>
 

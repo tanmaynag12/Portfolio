@@ -24,12 +24,14 @@ const achievements: Achievement[] = [
 
 function Achievements() {
   return (
-    <section id="achievements" className="px-6 pt-20 md:px-10">
+    <section id="achievements" className="bg-[#E8E5DB] px-6 py-20 md:px-10">
       <div className="mx-auto max-w-4xl">
         <div className="flex flex-col gap-8 md:flex-row">
           <div className="md:w-48 md:shrink-0">
-            <h2 className="text-2xl font-semibold text-white">Achievements</h2>
-            <p className="mt-2 text-sm text-white/50">
+            <h2 className="text-2xl font-semibold text-neutral-900">
+              Achievements
+            </h2>
+            <p className="mt-2 text-sm text-neutral-500">
               Competitions and hackathons I've taken part in.
             </p>
           </div>
@@ -38,16 +40,16 @@ function Achievements() {
             {achievements.map((item) => (
               <article
                 key={item.title}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm md:p-7"
+                className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm md:p-7"
               >
-                <h3 className="text-lg font-semibold text-white">
+                <h3 className="text-lg font-semibold text-neutral-900">
                   {item.title}
                 </h3>
-                <p className="mt-1 text-xs font-medium uppercase tracking-wide text-white/40">
+                <p className="mt-1 text-xs font-medium uppercase tracking-wide text-neutral-400">
                   {item.detail}
                 </p>
 
-                <p className="mt-4 text-sm leading-relaxed text-white/80">
+                <p className="mt-4 text-sm leading-relaxed text-neutral-700">
                   {item.description}
                 </p>
 
@@ -56,7 +58,7 @@ function Achievements() {
                     href={item.certificate}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full border border-blue-400/30 bg-blue-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-blue-400 transition hover:bg-blue-400/20"
+                    className="rounded-full border border-blue-600/30 bg-blue-600/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-blue-600 transition hover:bg-blue-600/20"
                   >
                     View Certificate
                   </a>
