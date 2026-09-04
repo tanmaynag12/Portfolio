@@ -17,11 +17,11 @@ function Hero() {
               Tanmay Nag
             </h1>
 
-            <span className="mt-1.5 block text-base font-medium text-neutral-500">
+            <span className="mt-1.5 block text-lg font-medium text-neutral-500">
               Software Engineer
             </span>
 
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-neutral-700 md:text-lg">
+            <p className="mt-4 max-w-xl text-lg leading-relaxed text-neutral-700">
               Hello! I'm Tanmay, an Artificial Intelligence and Data Science
               Graduate. I enjoy turning ideas into full working applications.
             </p>

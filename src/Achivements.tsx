@@ -31,7 +31,8 @@ function Achievements() {
             <h2 className="text-2xl font-semibold text-neutral-900">
               Achievements
             </h2>
-            <p className="mt-2 text-sm text-neutral-500">
+
+            <p className="mt-2 text-base text-neutral-500">
               Competitions and hackathons I've taken part in.
             </p>
           </div>
@@ -42,14 +43,15 @@ function Achievements() {
                 key={item.title}
                 className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm md:p-7"
               >
-                <h3 className="text-lg font-semibold text-neutral-900">
+                <h3 className="text-xl font-semibold text-neutral-900">
                   {item.title}
                 </h3>
-                <p className="mt-1 text-xs font-medium uppercase tracking-wide text-neutral-400">
+
+                <p className="mt-1 text-sm font-medium uppercase tracking-wide text-neutral-400">
                   {item.detail}
                 </p>
 
-                <p className="mt-4 text-sm leading-relaxed text-neutral-700">
+                <p className="mt-4 text-lg leading-relaxed text-neutral-700">
                   {item.description}
                 </p>
 
@@ -58,7 +60,7 @@ function Achievements() {
                     href={item.certificate}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full border border-blue-600/30 bg-blue-600/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-blue-600 transition hover:bg-blue-600/20"
+                    className="rounded-full border border-blue-600/30 bg-blue-600/10 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-blue-600 transition hover:bg-blue-600/20"
                   >
                     View Certificate
                   </a>

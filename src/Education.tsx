@@ -55,13 +55,13 @@ function Education() {
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                   className="block w-full text-left"
                 >
-                  <span className="text-xs font-semibold uppercase tracking-widest text-neutral-400">
+                  <span className="text-sm font-semibold uppercase tracking-widest text-neutral-400">
                     {entry.years}
                   </span>
-                  <h3 className="mt-1 text-lg font-semibold text-neutral-900">
+                  <h3 className="mt-1 text-xl font-semibold text-neutral-900">
                     {entry.degree}
                   </h3>
-                  <p className="mt-0.5 text-sm text-neutral-600">
+                  <p className="mt-0.5 text-lg text-neutral-600">
                     {entry.institution}
                   </p>
                 </button>

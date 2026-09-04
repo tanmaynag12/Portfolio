@@ -7,24 +7,24 @@ function About() {
             <h2 className="text-2xl font-semibold text-neutral-900">
               About Me
             </h2>
-            <p className="mt-2 text-sm text-neutral-500">
+            <p className="mt-2 text-base text-neutral-500">
               A bit about how I work and what I care about.
             </p>
           </div>
 
           <div className="space-y-4 md:flex-1">
-            <p className="text-sm leading-relaxed text-neutral-700">
+            <p className="text-lg leading-relaxed text-neutral-700">
               I've always wanted to know how things work, and that's basically
               why I ended up in AI and software. Outside of code I'm usually
               gaming, out on some trip, or singing.
             </p>
-            <p className="text-sm leading-relaxed text-neutral-700">
+            <p className="text-lg leading-relaxed text-neutral-700">
               I mostly work on backend and full-stack stuff, and I like picking
               projects that actually solve something real. So far that's meant
               an AI healthcare platform and a communication app for people with
               speech impairments, I want to keep building in that direction.
             </p>
-            <p className="text-sm leading-relaxed text-neutral-700">
+            <p className="text-lg leading-relaxed text-neutral-700">
               Before touching any tech stack, I try to figure out who I'm
               building for and what the actual problem is. I keep things simple,
               ask for feedback a lot, and I'd rather have a UI that works well

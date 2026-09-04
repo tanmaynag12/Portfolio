@@ -1,10 +1,13 @@
 import { useState } from "react";
+
 import medicateHome from "./assets/Medicate_home.jpeg";
 import medicateChatbot from "./assets/Medicate_chatbot.jpeg";
 import medicateLogin from "./assets/Medicate_login.jpeg";
+
 import JobPortalHome from "./assets/JobPortal_home.jpeg";
 import JobPortalSignup from "./assets/Jobportal_signup.jpeg";
 import JobPortaljob from "./assets/Jobportal_job.jpeg";
+
 import AACHOME from "./assets/AAC_home.jpeg";
 import AACPHRASES from "./assets/AAC_phrases.jpeg";
 import AACLANG from "./assets/AAC_languages.jpeg";
@@ -131,7 +134,7 @@ function ProjectCard({ project }: { project: Project }) {
             )}
           </>
         ) : (
-          <span className="text-xs uppercase tracking-widest text-neutral-400"></span>
+          <span className="text-sm uppercase tracking-widest text-neutral-400"></span>
         )}
       </div>
 
@@ -140,7 +143,7 @@ function ProjectCard({ project }: { project: Project }) {
           {project.title}
         </h3>
 
-        <p className="mt-4 text-sm leading-relaxed text-neutral-700 md:text-base">
+        <p className="mt-4 text-lg leading-relaxed text-neutral-700">
           {project.description}
         </p>
 
@@ -148,7 +151,7 @@ function ProjectCard({ project }: { project: Project }) {
           {project.tech.map((tech) => (
             <span
               key={tech}
-              className="rounded-full border border-black/10 bg-black/5 px-3 py-1.5 text-xs text-neutral-600 md:text-sm"
+              className="rounded-full border border-black/10 bg-black/5 px-3 py-1.5 text-sm text-neutral-600"
             >
               {tech}
             </span>
@@ -161,7 +164,7 @@ function ProjectCard({ project }: { project: Project }) {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-black/10 bg-black/5 px-5 py-2.5 text-xs font-semibold uppercase tracking-wide text-neutral-700 transition hover:bg-black/10 hover:text-neutral-900"
+              className="rounded-full border border-black/10 bg-black/5 px-5 py-2.5 text-sm font-semibold uppercase tracking-wide text-neutral-700 transition hover:bg-black/10 hover:text-neutral-900"
             >
               GitHub
             </a>
@@ -172,7 +175,7 @@ function ProjectCard({ project }: { project: Project }) {
               href={project.live}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-blue-600/30 bg-blue-600/10 px-5 py-2.5 text-xs font-semibold uppercase tracking-wide text-blue-600 transition hover:bg-blue-600/20"
+              className="rounded-full border border-blue-600/30 bg-blue-600/10 px-5 py-2.5 text-sm font-semibold uppercase tracking-wide text-blue-600 transition hover:bg-blue-600/20"
             >
               Live
             </a>
@@ -189,7 +192,7 @@ function Projects() {
       <div className="mx-auto max-w-6xl">
         <h2 className="text-2xl font-semibold text-neutral-900">Projects</h2>
 
-        <p className="mt-2 text-sm text-neutral-500">
+        <p className="mt-2 text-base text-neutral-500">
           Here are some of the projects I've worked on.
         </p>
 

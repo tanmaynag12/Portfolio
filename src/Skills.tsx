@@ -29,7 +29,7 @@ function Skills() {
         <div className="flex flex-col gap-8 md:flex-row">
           <div className="md:w-48 md:shrink-0">
             <h2 className="text-2xl font-semibold text-neutral-900">Skills</h2>
-            <p className="mt-2 text-sm text-neutral-500">
+            <p className="mt-2 text-base text-neutral-500">
               Tools I reach for regularly.
             </p>
           </div>
@@ -37,14 +37,14 @@ function Skills() {
           <div className="space-y-6 md:flex-1">
             {skillCategories.map((category) => (
               <div key={category.label}>
-                <h3 className="text-xs font-semibold uppercase tracking-widest text-neutral-400">
+                <h3 className="text-sm font-semibold uppercase tracking-widest text-neutral-400">
                   {category.label}
                 </h3>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {category.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-full border border-black/10 bg-black/5 px-3 py-1.5 text-sm text-neutral-700"
+                      className="rounded-full border border-black/10 bg-black/5 px-3 py-1.5 text-base text-neutral-700"
                     >
                       {skill}
                     </span>
