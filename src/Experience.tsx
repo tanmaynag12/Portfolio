@@ -8,9 +8,9 @@ type ExperienceItem = {
 };
 
 const experiences: ExperienceItem[] = [
-  {
+  /* {
     role: "Full Stack Developer",
-    company: "Bringway Solutions",
+    company: "Bringway Solutions Private Limited",
     companyUrl: "https://www.bringway.co.in/",
     period: "Jul 2026 – Present",
     description:
@@ -31,7 +31,7 @@ const experiences: ExperienceItem[] = [
     description:
       "Developing custom full-stack web solutions for clients primarily across the US and Europe, from frontend interfaces and REST APIs to database integration and cloud deployment, including proof-of-concepts and MVPs and third-party API integrations to meet client requirements.",
     tech: ["React", "Node.js", "Express.js", "PostgreSQL"],
-  },
+  },*/
   {
     role: "Software Development Engineer Intern",
     company: "Bock AI",
