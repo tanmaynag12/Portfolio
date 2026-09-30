@@ -7,6 +7,8 @@ const NAV_LINKS = [
   { id: "projects", label: "Projects" },
   { id: "skills", label: "Skills" },
   { id: "education", label: "Education" },
+  { id: "certifications", label: "Certifications" },
+  { id: "achievements", label: "Achievements" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -16,7 +18,6 @@ function Nav() {
   const [activeSection, setActiveSection] = useState("hero");
   const lastScrollY = useRef(0);
 
-  // Hide/show nav on scroll direction
   useEffect(() => {
     let scrollTimeout: ReturnType<typeof setTimeout> | null = null;
     let isScrolling = false;
@@ -62,7 +63,6 @@ function Nav() {
     };
   }, []);
 
-  // Scroll-spy: highlight active section
   useEffect(() => {
     const sections = NAV_LINKS.map((link) =>
       document.getElementById(link.id),
@@ -103,13 +103,13 @@ function Nav() {
       }`}
     >
       {/* Desktop nav */}
-      <nav className="hidden md:flex items-center justify-center gap-1.5 rounded-full border border-black/10 bg-[#DCD9CF] p-2 shadow-sm backdrop-blur-md">
+      <nav className="hidden md:flex items-center justify-center gap-1 rounded-full border border-black/10 bg-[#DCD9CF] p-1.5 shadow-sm backdrop-blur-md">
         {NAV_LINKS.filter((link) => link.id !== "hero").map((link) => (
           <a
             key={link.id}
             href={`#${link.id}`}
             onClick={() => handleLinkClick(link.id)}
-            className={`no-underline rounded-full px-5 py-3 text-base font-medium transition-all duration-300 ${
+            className={`no-underline rounded-full px-4 py-2.5 text-[15px] font-medium transition-all duration-300 ${
               activeSection === link.id
                 ? "bg-blue-600 text-white shadow-sm"
                 : "text-neutral-600 hover:bg-black/5 hover:text-neutral-900"
@@ -166,13 +166,13 @@ function Nav() {
           }`}
         >
           <div className="overflow-hidden">
-            <div className="flex flex-col gap-2 px-4 pb-4">
+            <div className="grid grid-cols-2 gap-2 px-4 pb-4">
               {NAV_LINKS.filter((link) => link.id !== "hero").map((link) => (
                 <a
                   key={link.id}
                   href={`#${link.id}`}
                   onClick={() => handleLinkClick(link.id)}
-                  className={`no-underline rounded-full px-4 py-3 text-center text-base font-medium transition-all duration-300 ${
+                  className={`no-underline rounded-full px-3 py-2.5 text-center text-[15px] font-medium transition-all duration-300 ${
                     activeSection === link.id
                       ? "bg-blue-600 text-white"
                       : "bg-black/5 text-neutral-600 hover:bg-black/10 hover:text-neutral-900"

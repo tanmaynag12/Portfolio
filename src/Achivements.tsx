@@ -24,7 +24,7 @@ const achievements: Achievement[] = [
 
 function Achievements() {
   return (
-    <section id="achievements" className="bg-[#E8E5DB] px-6 py-20 md:px-10">
+    <section id="achievements" className="bg-[#F0EEE6] px-6 py-20 md:px-10">
       <div className="mx-auto max-w-4xl">
         <div className="flex flex-col gap-8 md:flex-row">
           <div className="md:w-48 md:shrink-0">

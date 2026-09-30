@@ -9,6 +9,7 @@ import Skills from "./Skills";
 import About from "./About";
 import Background from "./Background";
 import Contact from "./Contact";
+import Certificate from "./Certificate";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Projects />
       <Skills />
       <Education />
+      <Certificate />
       <Achievements />
       <Contact />
       <Footer />
